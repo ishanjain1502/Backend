@@ -1,0 +1,54 @@
+Chat application using redis:
+
+
+For this I opened 2 terminals side by side and set them up for redis after that
+
+
+Before sending the message -
+
+1. Reciever terminal:
+ xread block 0 streams myStream $
+
+2. Sender Terminal:
+xadd myStream * message "hello there , how ya doin "
+
+After Sending the message-
+
+1. Sender Terminal:
+This will show the generated id in this case time stamp of the time when the process was executed
+
+"1630602602228-0"
+
+2. Reciever Terminal:
+
+1) 1) "myStream"
+   2) 1) 1) "1630602602228-0"
+         2) 1) "message"
+            2) "hello there , how ya doin "
+
+Reciever will show the recieved message and its arrangement in cache/
+
+The Benifit of using sreams over traditional publisher/subscriber is the advantage of it on providing the history of the use too, in form of data on streams which can be checked using XREAD.
+
+127.0.0.1:6379> xread count 200 streams myStream 0
+1) 1) "myStream"
+   2) 1) 1) "1630602488331-0"
+         2) 1) "name"
+            2) "Ishan"
+      2) 1) "1630602516088-0"
+         2) 1) "name"
+            2) "Ishan"
+      3) 1) "1630602543172-0"
+         2) 1) "message"
+            2) "hello there"
+      4) 1) "1630602566904-0"
+         2) 1) "message"
+            2) "hello there"
+      5) 1) "1630602602228-0"
+         2) 1) "message"
+            2) "hello there , how ya doin "
+
+
+This way we can make a chat application using redis.
+
+The edge case for the above application would be the ones in which different number of arguments need to be passed as at that time stream will throm error.
