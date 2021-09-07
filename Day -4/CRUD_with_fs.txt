@@ -1,0 +1,32 @@
+// CRUD operations using fs module;
+
+// first we need to import the fs module using require:
+var fs = require("fs");
+
+// creating a new directory using fs
+fs.mkdirSync("dir_name");
+
+// to create a file inside a directory:
+ fs.writeFileSync("dir_name/file_name.txt" , "hello world" , (err)=> { if(err){console.log(err);   }     });
+ 
+ // to update a file:
+ fs.appendFileSync("dir_name/file_name.txt" , " Appended");
+ 
+ //Reading a file:
+ fs.readFileSync("dir_name/file_name.txt");
+ 
+ //this will give a buffer so to improve the performance the systems reads file not as a whole chunk but in various parts; But is we want to read the full file we can do so by:
+fs.readFileSync("dir_name/file_name.txt", "utf-8"); 
+
+// to rename the file:
+fs.renameSync("dir_name/file_name.txt" , "dir_name/file_name2.txt");
+
+// to write the file and replace prev data with new one:
+fs.writeFileSync("dir_name/file_name2.txt" , "Namaste Duniya");
+
+// to delete a file:
+fs.unlinkSync("dir_name/file_name.txt");
+
+// to delete a directory:
+fs.rmdirSync("dir_name");
+
