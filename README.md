@@ -16,3 +16,5 @@ How internet works and intro to Node JS
 CRUD operations with FS module <br/>
 <h3>Day-6</h3>
 Event loop and async programming<br/>
+<h3>Day-7</h3>
+Setting up expres <br/>
