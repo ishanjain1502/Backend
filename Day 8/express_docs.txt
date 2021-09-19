@@ -1,1 +1,67 @@
+### EXPRESS DOCS ###
+Routing refers to determining how an application responds to a client request to a particular endpoint, which is a URI (or path) and a specific HTTP request method (GET, POST, and so on).
+
+Each route can have one or more handler functions, which are executed when the route is matched.
+
+Route definition takes the following structure:
+
+app.METHOD(PATH, HANDLER)
+Where:
+
+app is an instance of express.
+METHOD is an HTTP request method, in lowercase.
+PATH is a path on the server.
+HANDLER is the function executed when the route is matched.
+
+### Basic CRUD operations ###
+
+Respond with Hello World! on the homepage:
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
+
+Respond to POST request on the root route (/), the application’s home page:
+app.post('/', function (req, res) {
+  res.send('Got a POST request')
+})
+
+Respond to a PUT request to the /user route:
+app.put('/user', function (req, res) {
+  res.send('Got a PUT request at /user')
+})
+
+
+Respond to a DELETE request to the /user route:
+app.delete('/user', function (req, res) {
+  res.send('Got a DELETE request at /user')
+})
+
+
+### Serving Static Files ###
+
+To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express.
+
+The function signature is:
+
+express.static(root, [options])
+The root argument specifies the root directory from which to serve static assets. For more information on the options argument, see express.static.
+
+For example, use the following code to serve images, CSS files, and JavaScript files in a directory named public:
+
+app.use(express.static('public'))
+
+-----------------------------------------------------------------------
+####   MIDDLE-WARE  #####
+
+Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle. The next function is a function in the Express router which, when invoked, executes the middleware succeeding the current middleware.
+
+Middleware functions can perform the following tasks:
+
+Execute any code.
+Make changes to the request and the response objects.
+End the request-response cycle.
+Call the next middleware in the stack.
+
+--------------------------------------------------------------------------
+
 
