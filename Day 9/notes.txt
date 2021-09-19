@@ -1,0 +1,1 @@
+We learned different ways of sending static files through backend
