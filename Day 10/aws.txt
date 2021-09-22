@@ -1,1 +1,8 @@
+-----------------------Steps to deploy on AWS--------------------------
+
+1. Create an account on aws
+2. Initialize an ec2 instance
+3. install all the git and node commands
+4. load your repository on ec2
+5. host it from there using CI/CD
 
