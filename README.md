@@ -18,3 +18,15 @@ CRUD operations with FS module <br/>
 Event loop and async programming<br/>
 <h3>Day-7</h3>
 Setting up expres <br/>
+
+<h3>Day-8</h3>
+Middlewares<br/>
+
+<h3>Day-9</h3>
+Sending Static Files<br/>
+
+<h3>Day-10</h3>
+Deployment in aws using CI/CD commands <br/>
+
+<h3>Day-11</h3>
+Authentication<br/>
